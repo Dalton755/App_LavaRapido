@@ -303,5 +303,14 @@ select{
 
 }
 
+.btn:disabled{
+
+  opacity:.7;
+
+  cursor:not-allowed;
+
+}
+
+
 
 
