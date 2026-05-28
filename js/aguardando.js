@@ -66,9 +66,10 @@ async function carregarAguardando(){
 
           <div class="card-tempo">
 
-            ⏱ ${item.tempoMovimentacao}
-
-          </div>
+              ⏱ Aguardando há
+              ${item.tempoMovimentacao || '0 min'}
+            
+            </div>
 
           <div class="card-footer">
 
