@@ -46,6 +46,27 @@ async function carregarAguardando(){
 
           <div>
 
+              Responsável:
+              ${item.responsavel || '-'}
+            
+            </div>
+            
+            <div>
+            
+              Movimentador:
+              ${item.movimentador || '-'}
+            
+            </div>
+            
+            <div>
+            
+              Tipo:
+              ${item.tipoLavagem || '-'}
+
+          </div>
+
+          <div>
+
             Movimentador:
             ${item.movimentador || '-'}
           
