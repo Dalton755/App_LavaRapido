@@ -115,13 +115,21 @@ async function movimentar(){
 
   };
 
-  await fetch(API_URL,{
+const url =
 
-    method:'POST',
+  API_URL +
 
-    body:JSON.stringify(body)
+  '?action=movimentar' +
 
-  });
+  '&id=' + encodeURIComponent(id) +
+
+  '&movimentador=' + encodeURIComponent(movimentador) +
+
+  '&tipoLavagem=' + encodeURIComponent(tipoLavagem);
+
+await fetch(url);
+
+
 
   alert(
     'Movimentação registrada'
