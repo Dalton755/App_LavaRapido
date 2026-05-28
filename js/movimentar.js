@@ -19,11 +19,15 @@ async function carregarDados(){
     await response.json();
 
   solicitacao =
-    dados.find(item => item.id == id);
+    dados.find(
+      item => item.id == id
+    );
 
   if(!solicitacao){
 
-    alert('Solicitação não encontrada');
+    alert(
+      'Solicitação não encontrada'
+    );
 
     return;
 
@@ -58,6 +62,11 @@ async function movimentar(){
       'tipoLavagem'
     ).value;
 
+  const arquivo =
+    document.getElementById(
+      'foto'
+    ).files[0];
+
   if(!movimentador){
 
     alert(
@@ -78,32 +87,31 @@ async function movimentar(){
 
   }
 
+  let fotoBase64 = '';
+
+  if(arquivo){
+
+    fotoBase64 =
+      await converterBase64(
+        arquivo
+      );
+
+  }
+
   const body = {
 
     action:'movimentar',
 
     id:id,
 
+    placa:
+      solicitacao.placa,
+
     movimentador,
 
     tipoLavagem,
 
-const arquivo =
-  document.getElementById(
-    'foto'
-  ).files[0];
-
-let fotoBase64 = '';
-
-if(arquivo){
-
-  fotoBase64 =
-    await converterBase64(
-      arquivo
-    );
-
-}
-
+    foto:fotoBase64
 
   };
 
@@ -121,6 +129,29 @@ if(arquivo){
 
   window.location.href =
     'solicitacoes.html';
+
+}
+
+function converterBase64(file){
+
+  return new Promise(
+    (resolve,reject)=>{
+
+      const reader =
+        new FileReader();
+
+      reader.readAsDataURL(file);
+
+      reader.onload =
+        () => resolve(
+          reader.result
+        );
+
+      reader.onerror =
+        error => reject(error);
+
+    }
+  );
 
 }
 
