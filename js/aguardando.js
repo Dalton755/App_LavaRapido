@@ -33,8 +33,10 @@ async function carregarAguardando(){
 
           <img
             src="${
-              item.foto ||
-              'https://placehold.co/600x400?text=Sem+Foto'
+              item.foto
+                ? item.foto
+                : 'https://placehold.co/600x400/png?text=' +
+                  encodeURIComponent(item.placa)
             }"
             class="foto-card">
 
