@@ -31,42 +31,80 @@
 
   <main class="container">
 
-    <div class="menu-grid">
+<div class="menu-grid">
 
-      <a href="solicitacoes.html"
-         class="menu-card">
+  <a href="solicitacoes.html"
+     class="menu-card">
 
-        <h2>Solicitações</h2>
+    <div class="menu-top">
 
-        <p>
-          Veículos aguardando movimentação
-        </p>
+      <h2>Solicitações</h2>
 
-      </a>
+      <div
+        id="totalSolicitacoes"
+        class="badge">
 
-      <a href="aguardando.html"
-         class="menu-card">
+        0
 
-        <h2>Aguardando Lavagem</h2>
-
-        <p>
-          Veículos em fila de lavagem
-        </p>
-
-      </a>
-
-      <a href="concluido.html"
-         class="menu-card">
-
-        <h2>Concluídos</h2>
-
-        <p>
-          Lavagens finalizadas
-        </p>
-
-      </a>
+      </div>
 
     </div>
+
+    <p>
+      Veículos aguardando movimentação
+    </p>
+
+  </a>
+
+  <a href="aguardando.html"
+     class="menu-card">
+
+    <div class="menu-top">
+
+      <h2>Aguardando</h2>
+
+      <div
+        id="totalAguardando"
+        class="badge badge-yellow">
+
+        0
+
+      </div>
+
+    </div>
+
+    <p>
+      Veículos em fila de lavagem
+    </p>
+
+  </a>
+
+  <a href="concluido.html"
+     class="menu-card">
+
+    <div class="menu-top">
+
+      <h2>Concluídos Hoje</h2>
+
+      <div
+        id="totalConcluidos"
+        class="badge badge-green">
+
+        0
+
+      </div>
+
+    </div>
+
+    <p>
+      Lavagens finalizadas hoje
+    </p>
+
+  </a>
+
+</div>
+
+
 
   </main>
 
