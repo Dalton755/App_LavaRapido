@@ -1,3 +1,5 @@
+let primeiraCarga = true;
+
 async function carregarSolicitacoes(){
 
   const lista =
@@ -5,9 +7,17 @@ async function carregarSolicitacoes(){
       'listaSolicitacoes'
     );
 
-  lista.innerHTML = 'Carregando...';
-
   try{
+
+    if(primeiraCarga){
+
+      lista.innerHTML = `
+        <div class="card">
+          Carregando...
+        </div>
+      `;
+
+    }
 
     const response =
       await fetch(
@@ -17,91 +27,99 @@ async function carregarSolicitacoes(){
     const dados =
       await response.json();
 
-    console.log(dados);
-
     const solicitacoes =
       dados.filter(
         item =>
           item.status === 'SOLICITADO'
       );
 
-    lista.innerHTML = '';
+    let html = '';
 
     if(solicitacoes.length === 0){
 
-      lista.innerHTML = `
+      html = `
+
         <div class="card">
 
           Nenhuma solicitação encontrada
 
         </div>
+
       `;
 
-      return;
+    }else{
+
+      solicitacoes.forEach(item => {
+
+        html += `
+
+          <div class="card">
+
+            <div class="card-top">
+
+              <div class="placa">
+                ${item.placa}
+              </div>
+
+              <div class="tempo">
+                ${item.tempo}
+              </div>
+
+            </div>
+
+            <div class="card-info">
+
+              <div>
+                ${item.responsavel}
+              </div>
+
+              <div>
+                ${item.agencia}
+              </div>
+
+            </div>
+
+            <div class="card-footer">
+
+              <button
+                class="btn"
+                onclick="abrirMovimentacao('${item.id}')">
+
+                Movimentar
+
+              </button>
+
+            </div>
+
+          </div>
+
+        `;
+
+      });
 
     }
 
-    solicitacoes.forEach(item => {
+    lista.innerHTML = html;
 
-      lista.innerHTML += `
-
-        <div class="card">
-
-          <div class="card-top">
-
-            <div class="placa">
-              ${item.placa}
-            </div>
-
-            <div class="tempo">
-              ${item.tempo}
-            </div>
-
-          </div>
-
-          <div class="card-info">
-
-            <div>
-              ${item.responsavel}
-            </div>
-
-            <div>
-              ${item.agencia}
-            </div>
-
-          </div>
-
-          <div class="card-footer">
-
-            <button
-              class="btn"
-              onclick="abrirMovimentacao('${item.id}')">
-
-              Movimentar
-
-            </button>
-
-          </div>
-
-        </div>
-
-      `;
-
-    });
+    primeiraCarga = false;
 
   }catch(error){
 
     console.error(error);
 
-    lista.innerHTML = `
+    if(primeiraCarga){
 
-      <div class="card">
+      lista.innerHTML = `
 
-        Erro ao carregar solicitações
+        <div class="card">
 
-      </div>
+          Erro ao carregar solicitações
 
-    `;
+        </div>
+
+      `;
+
+    }
 
   }
 
