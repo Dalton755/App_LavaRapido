@@ -332,6 +332,38 @@ select{
 
 }
 
+.foto-card{
+
+  width:100%;
+
+  height:220px;
+
+  object-fit:cover;
+
+  border-radius:16px;
+
+  margin-bottom:16px;
+
+}
+
+.card-placa{
+
+  font-size:28px;
+
+  font-weight:700;
+
+  margin-bottom:8px;
+
+}
+
+.card-tempo{
+
+  color:#64748b;
+
+  margin-top:10px;
+
+}
+
 
 
 
