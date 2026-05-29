@@ -25,7 +25,6 @@ const aguardando =
       item.status ===
       'AGUARDANDO_LAVAGEM'
   );
-  console.log('TODOS:', dados);
 
 console.log(
   'AGUARDANDO:',
@@ -134,6 +133,16 @@ console.error(
   'Erro ao carregar veículos:',
   error
 );
+
+lista.innerHTML = `
+
+  <div class="card">
+
+    Erro ao carregar veículos
+
+  </div>
+
+`;
 ```
 
 }
