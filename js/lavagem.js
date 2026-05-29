@@ -50,6 +50,8 @@ veiculo.responsavel;
 
 async function concluirLavagem(){
 
+  alert('Botão clicado');
+  
 const lavador =
 document.getElementById(
 'lavador'
