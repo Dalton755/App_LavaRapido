@@ -25,6 +25,12 @@ const aguardando =
       item.status ===
       'AGUARDANDO_LAVAGEM'
   );
+  console.log('TODOS:', dados);
+
+console.log(
+  'AGUARDANDO:',
+  aguardando
+);
 
 if (aguardando.length === 0) {
 
