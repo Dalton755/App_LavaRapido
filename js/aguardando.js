@@ -30,9 +30,7 @@ if (aguardando.length === 0) {
 
   lista.innerHTML = `
     <div class="card">
-      <h3>
-        Nenhum veículo aguardando lavagem
-      </h3>
+      <h3>Nenhum veículo aguardando lavagem</h3>
     </div>
   `;
 
@@ -48,12 +46,7 @@ aguardando.forEach(item => {
     <div class="card">
 
       <img
-        src="${
-          item.foto && item.foto !== ''
-            ? item.foto
-            : 'https://placehold.co/600x400/png?text=' +
-              encodeURIComponent(item.placa)
-        }"
+        src="${item.foto && item.foto !== '' ? item.foto : 'https://placehold.co/600x400/png?text=' + encodeURIComponent(item.placa)}"
         class="foto-card"
         alt="${item.placa}">
 
