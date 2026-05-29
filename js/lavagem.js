@@ -26,13 +26,13 @@ item => item.id == id
 
 if(!veiculo){
 
-```
+
 alert(
   'Veículo não encontrado'
 );
 
 return;
-```
+
 
 }
 
@@ -57,13 +57,13 @@ document.getElementById(
 
 if(!lavador){
 
-```
+
 alert(
   'Informe o lavador'
 );
 
 return;
-```
+
 
 }
 
@@ -78,7 +78,7 @@ item => item.value
 
 const url =
 
-```
+
 API_URL +
 
 '?action=concluir' +
@@ -91,7 +91,7 @@ encodeURIComponent(lavador) +
 
 '&checklist=' +
 encodeURIComponent(checklist);
-```
+
 
 await fetch(url);
 
