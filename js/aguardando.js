@@ -1,137 +1,149 @@
-async function carregarAguardando(){
+const INTERVALO_ATUALIZACAO = 10000;
 
-  const lista =
-    document.getElementById(
-      'listaAguardando'
-    );
+async function carregarAguardando() {
 
-  try{
+const lista =
+document.getElementById(
+'listaAguardando'
+);
 
-    const response =
-      await fetch(
-        API_URL +
-        '?action=listar'
-      );
+try {
 
-    const dados =
-      await response.json();
+```
+const response =
+  await fetch(
+    API_URL +
+    '?action=listar'
+  );
 
-    const aguardando =
-      dados.filter(
-        item =>
-          item.status ===
-          'AGUARDANDO_LAVAGEM'
-      );
+const dados =
+  await response.json();
 
-    let html = '';
+const aguardando =
+  dados.filter(
+    item =>
+      item.status ===
+      'AGUARDANDO_LAVAGEM'
+  );
 
-    aguardando.forEach(item => {
+if (aguardando.length === 0) {
 
-      html += `
+  lista.innerHTML = `
 
-        <div class="card">
+    <div class="card">
 
-          <img
-            src="${
-              item.foto
-                ? item.foto
-                : 'https://placehold.co/600x400/png?text=' +
-                  encodeURIComponent(item.placa)
-            }"
-            class="foto-card">
+      <h3>
+        Nenhum veículo aguardando lavagem
+      </h3>
 
-          <div class="card-placa">
+    </div>
 
-            ${item.placa}
+  `;
 
-          </div>
-
-          <div>
-
-              Responsável:
-              ${item.responsavel || '-'}
-            
-            </div>
-            
-            <div>
-            
-              Movimentador:
-              ${item.movimentador || '-'}
-            
-            </div>
-            
-            <div>
-            
-              Tipo:
-              ${item.tipoLavagem || '-'}
-
-          </div>
-
-          <div>
-
-            Movimentador:
-            ${item.movimentador || '-'}
-          
-          </div>
-          
-          <div>
-          
-            Tipo:
-            ${item.tipoLavagem || '-'}
-          
-          </div>
-
-          <div>
-
-            ${item.movimentador || ''}
-
-          </div>
-
-          <div class="card-tempo">
-
-              ⏱ Aguardando há
-              ${item.tempoMovimentacao || '0 min'}
-            
-            </div>
-
-          <div class="card-footer">
-
-            <button
-              class="btn btn-yellow"
-              onclick="abrirLavagem('${item.id}')">
-
-              Iniciar Lavagem
-
-            </button>
-
-          </div>
-
-        </div>
-
-      `;
-
-    });
-
-    lista.innerHTML = html;
-
-  }catch(error){
-
-    console.error(error);
-
-  }
+  return;
 
 }
 
-function abrirLavagem(id){
+let html = '';
 
-  window.location.href =
-    'lavagem.html?id=' + id;
+aguardando.forEach(item => {
+
+  html += `
+
+    <div class="card">
+
+      <img
+        src="${
+          item.foto
+            ? item.foto
+            : 'https://placehold.co/600x400/png?text=' +
+              encodeURIComponent(item.placa)
+        }"
+        class="foto-card"
+        alt="${item.placa}">
+
+      <div class="card-placa">
+
+        ${item.placa}
+
+      </div>
+
+      <div class="card-info">
+
+        <div>
+
+          <strong>Responsável:</strong>
+          ${item.responsavel || '-'}
+
+        </div>
+
+        <div>
+
+          <strong>Movimentador:</strong>
+          ${item.movimentador || '-'}
+
+        </div>
+
+        <div>
+
+          <strong>Tipo:</strong>
+          ${item.tipoLavagem || '-'}
+
+        </div>
+
+      </div>
+
+      <div class="card-tempo">
+
+        ⏱ Aguardando há
+        ${item.tempoMovimentacao || '0 min'}
+
+      </div>
+
+      <div class="card-footer">
+
+        <button
+          class="btn btn-yellow"
+          onclick="abrirLavagem('${item.id}')">
+
+          Iniciar Lavagem
+
+        </button>
+
+      </div>
+
+    </div>
+
+  `;
+
+});
+
+lista.innerHTML = html;
+```
+
+} catch (error) {
+
+```
+console.error(
+  'Erro ao carregar veículos:',
+  error
+);
+```
+
+}
+
+}
+
+function abrirLavagem(id) {
+
+window.location.href =
+'lavagem.html?id=' + id;
 
 }
 
 carregarAguardando();
 
 setInterval(
-  carregarAguardando,
-  10000
+carregarAguardando,
+INTERVALO_ATUALIZACAO
 );
