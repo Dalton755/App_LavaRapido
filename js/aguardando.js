@@ -8,7 +8,7 @@ const lista = document.getElementById(
 
 try {
 
-```
+
 const response = await fetch(
   API_URL + '?action=listar'
 );
@@ -96,11 +96,11 @@ aguardando.forEach(item => {
 });
 
 lista.innerHTML = html;
-```
+
 
 } catch (error) {
 
-```
+
 console.error(
   'Erro ao carregar veículos:',
   error
@@ -111,7 +111,7 @@ lista.innerHTML = `
     Erro ao carregar veículos
   </div>
 `;
-```
+
 
 }
 
