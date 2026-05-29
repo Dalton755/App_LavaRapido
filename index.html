@@ -20,10 +20,48 @@
 <script src="./js/index.js"></script>
 
   
+  
 <body>
+
+  <div
+  id="overlay"
+  class="overlay"
+  onclick="fecharMenu()">
+
+</div>
+
+<nav
+  id="sidebar"
+  class="sidebar">
+
+  <a href="index.html">
+    🏠 Dashboard
+  </a>
+
+  <a href="solicitacoes.html">
+    📋 Solicitações
+  </a>
+
+  <a href="aguardando.html">
+    🚗 Aguardando Lavagem
+  </a>
+
+  <a href="concluido.html">
+    ✅ Concluídos
+  </a>
+
+</nav>
+
 
   <header class="topbar">
 
+    <div
+      class="menu-btn"
+      onclick="abrirMenu()">
+
+      ☰
+
+    </div>
     <div class="logo-area">
 
       <h1>Lava Rápido</h1>
@@ -112,6 +150,51 @@
 
 
   </main>
+
+
+  <script>
+
+function abrirMenu(){
+
+  document
+    .getElementById(
+      'sidebar'
+    )
+    .classList.add(
+      'active'
+    );
+
+  document
+    .getElementById(
+      'overlay'
+    )
+    .classList.add(
+      'active'
+    );
+
+}
+
+function fecharMenu(){
+
+  document
+    .getElementById(
+      'sidebar'
+    )
+    .classList.remove(
+      'active'
+    );
+
+  document
+    .getElementById(
+      'overlay'
+    )
+    .classList.remove(
+      'active'
+    );
+
+}
+
+</script>
 
 </body>
 
