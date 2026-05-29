@@ -2,29 +2,24 @@ const INTERVALO_ATUALIZACAO = 10000;
 
 async function carregarAguardando() {
 
-const lista =
-document.getElementById(
+const lista = document.getElementById(
 'listaAguardando'
 );
 
 try {
 
 ```
-const response =
-  await fetch(
-    API_URL +
-    '?action=listar'
-  );
+const response = await fetch(
+  API_URL + '?action=listar'
+);
 
-const dados =
-  await response.json();
+const dados = await response.json();
 
-const aguardando =
-  dados.filter(
-    item =>
-      item.status ===
-      'AGUARDANDO_LAVAGEM'
-  );
+const aguardando = dados.filter(
+  item =>
+    item.status ===
+    'AGUARDANDO_LAVAGEM'
+);
 
 console.log(
   'AGUARDANDO:',
@@ -34,15 +29,11 @@ console.log(
 if (aguardando.length === 0) {
 
   lista.innerHTML = `
-
     <div class="card">
-
       <h3>
         Nenhum veículo aguardando lavagem
       </h3>
-
     </div>
-
   `;
 
   return;
@@ -54,12 +45,11 @@ let html = '';
 aguardando.forEach(item => {
 
   html += `
-
     <div class="card">
 
       <img
         src="${
-          item.foto
+          item.foto && item.foto !== ''
             ? item.foto
             : 'https://placehold.co/600x400/png?text=' +
               encodeURIComponent(item.placa)
@@ -68,41 +58,31 @@ aguardando.forEach(item => {
         alt="${item.placa}">
 
       <div class="card-placa">
-
         ${item.placa}
-
       </div>
 
       <div class="card-info">
 
         <div>
-
           <strong>Responsável:</strong>
           ${item.responsavel || '-'}
-
         </div>
 
         <div>
-
           <strong>Movimentador:</strong>
           ${item.movimentador || '-'}
-
         </div>
 
         <div>
-
           <strong>Tipo:</strong>
           ${item.tipoLavagem || '-'}
-
         </div>
 
       </div>
 
       <div class="card-tempo">
-
         ⏱ Aguardando há
         ${item.tempoMovimentacao || '0 min'}
-
       </div>
 
       <div class="card-footer">
@@ -118,7 +98,6 @@ aguardando.forEach(item => {
       </div>
 
     </div>
-
   `;
 
 });
@@ -135,13 +114,9 @@ console.error(
 );
 
 lista.innerHTML = `
-
   <div class="card">
-
     Erro ao carregar veículos
-
   </div>
-
 `;
 ```
 
