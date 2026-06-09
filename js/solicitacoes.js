@@ -9,7 +9,7 @@ document.getElementById(
 
 try{
 
-```
+
 if(primeiraCarga){
 
   lista.innerHTML = `
@@ -128,11 +128,17 @@ if(solicitacoes.length === 0){
 lista.innerHTML = html;
 
 primeiraCarga = false;
-```
+
 
 }catch(error){
 
-```
+  }catch(error){
+
+  alert(
+    error.message
+  );
+
+
 console.error(
   'Erro ao carregar solicitações:',
   error
@@ -143,7 +149,7 @@ lista.innerHTML = `
     Erro ao carregar solicitações
   </div>
 `;
-```
+
 
 }
 
