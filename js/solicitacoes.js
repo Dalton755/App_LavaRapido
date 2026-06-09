@@ -59,20 +59,30 @@ const solicitacoes =
     ){
       return false;
     }
-alert(
-  'Loja: ' +
-  lojaSelecionada +
-  '\nAgencia: ' +
-  item.agencia
-);
+
     
-    if(
-      lojaSelecionada &&
-      item.agencia !==
+   if(
+  lojaSelecionada
+){
+
+  if(
+    item.agencia !==
+    lojaSelecionada
+  ){
+
+    console.log(
+      'DESCARTADO',
+      item.placa,
+      item.agencia,
       lojaSelecionada
-    ){
-      return false;
-    }
+    );
+
+    return false;
+
+  }
+
+}
+    
     console.log(
   'AGENCIA ITEM:',
   item.agencia
