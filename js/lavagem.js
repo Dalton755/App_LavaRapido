@@ -11,9 +11,18 @@ let veiculo = null;
 async function carregarLavagem(){
 
 const response =
-await fetch(
-API_URL +
-'?action=listar'
+  await fetch(url);
+
+const resultado =
+  await response.json();
+
+console.log(
+  'RESULTADO:',
+  resultado
+);
+
+alert(
+  JSON.stringify(resultado)
 );
 
 const dados =
