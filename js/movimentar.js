@@ -62,10 +62,7 @@ async function movimentar(){
       'tipoLavagem'
     ).value;
 
-  const arquivo =
-    document.getElementById(
-      'foto'
-    ).files[0];
+  
 
   if(!movimentador){
 
@@ -87,16 +84,7 @@ async function movimentar(){
 
   }
 
-  let fotoBase64 = '';
-
-  if(arquivo){
-
-    fotoBase64 =
-      await converterBase64(
-        arquivo
-      );
-
-  }
+ 
 
   const body = {
 
