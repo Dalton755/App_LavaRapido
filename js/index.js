@@ -6,13 +6,32 @@ async function carregarDashboard(){
   const dados =
     await response.json();
 
-  const solicitados =
-    dados.filter(
-      item => item.status === 'SOLICITADO'
+  const lojaSelecionada =
+  localStorage.getItem(
+    'lojaSelecionada'
+  );
+
+const dadosFiltrados =
+  dados.filter(item => {
+
+    if(!lojaSelecionada){
+      return true;
+    }
+
+    return (
+      item.agencia &&
+      item.agencia === lojaSelecionada
     );
 
+  });
+
+  const solicitados =
+  dadosFiltrados.filter(
+    item => item.status === 'SOLICITADO'
+  );
+
   const aguardando =
-    dados.filter(
+    dadosFiltrados.filter(
       item =>
         item.status === 'AGUARDANDO_LAVAGEM'
     );
@@ -23,7 +42,7 @@ async function carregarDashboard(){
     hoje.toLocaleDateString('pt-BR');
 
   const concluidos =
-    dados.filter(item => {
+    dadosFiltrados.filter(item => {
 
       if(item.status !== 'CONCLUIDO')
         return false;
