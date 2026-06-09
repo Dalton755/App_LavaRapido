@@ -69,14 +69,7 @@ return;
 
 }
 
-const checklist =
-[...document.querySelectorAll(
-'input[type="checkbox"]:checked'
-)]
-.map(
-item => item.value
-)
-.join(', ');
+
 
 const url =
 
