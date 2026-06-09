@@ -96,7 +96,6 @@ const url =
 
   '&movimentador=' + encodeURIComponent(movimentador) +
 
-  '&tipoLavagem=' + encodeURIComponent(tipoLavagem);
 
 await fetch(url);
 
@@ -143,27 +142,7 @@ document
     previewImagem
   );
 
-function previewImagem(event){
 
-  const arquivo =
-    event.target.files[0];
-
-  if(!arquivo) return;
-
-  const preview =
-    document.getElementById(
-      'previewImagem'
-    );
-
-  preview.src =
-    URL.createObjectURL(
-      arquivo
-    );
-
-  preview.style.display =
-    'block';
-
-}
 
 
 
