@@ -46,13 +46,11 @@ const solicitacoes =
     ){
       return false;
     }
-
-    console.log(
-  'COMPARANDO:',
-  {
-    lojaSelecionada,
-    agencia:item.agencia
-  }
+alert(
+  'Loja: ' +
+  lojaSelecionada +
+  '\nAgencia: ' +
+  item.agencia
 );
     
     if(
