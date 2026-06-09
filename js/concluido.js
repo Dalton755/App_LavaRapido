@@ -25,6 +25,11 @@ const hoje =
     'pt-BR'
   );
 
+  const lojaSelecionada =
+  localStorage.getItem(
+    'lojaSelecionada'
+  );
+
 const concluidos =
   dados.filter(item => {
 
