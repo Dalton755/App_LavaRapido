@@ -57,8 +57,6 @@ async function movimentar(){
       'movimentador'
     ).value;
 
- 
-
   if(!movimentador){
 
     alert(
@@ -69,41 +67,44 @@ async function movimentar(){
 
   }
 
+  const url =
 
+    API_URL +
 
-  const body = {
+    '?action=movimentar' +
 
-    action:'movimentar',
+    '&id=' +
+    encodeURIComponent(id) +
 
-    id:id,
+    '&movimentador=' +
+    encodeURIComponent(movimentador);
 
-    placa:
-      solicitacao.placa,
+  const response =
+    await fetch(url);
 
-    movimentador,
+  const resultado =
+    await response.json();
 
-
-
-  };
-
-const url =
-
-  API_URL +
-
-  '?action=movimentar' +
-
-  '&id=' + encodeURIComponent(id) +
-
-  '&movimentador=' + encodeURIComponent(movimentador) +
-
-
-
-  alert(
-    'Movimentação registrada'
+  console.log(
+    resultado
   );
 
-  window.location.href =
-    'solicitacoes.html';
+  if(resultado.sucesso){
+
+    alert(
+      'Movimentação registrada'
+    );
+
+    window.location.href =
+      'solicitacoes.html';
+
+  }else{
+
+    alert(
+      'Erro ao movimentar'
+    );
+
+  }
 
 }
 
