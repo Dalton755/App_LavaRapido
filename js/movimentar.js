@@ -97,9 +97,6 @@ const url =
   '&movimentador=' + encodeURIComponent(movimentador) +
 
 
-await fetch(url);
-
-
 
   alert(
     'Movimentação registrada'
