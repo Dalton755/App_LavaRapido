@@ -128,12 +128,7 @@ concluidos.forEach(item => {
 
       </div>
 
-      <div>
-
-        <strong>Checklist:</strong>
-        ${item.checklist || '-'}
-
-      </div>
+      
 
     </div>
 
