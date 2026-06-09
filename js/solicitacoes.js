@@ -25,6 +25,16 @@ const response =
     API_URL + '?action=listar'
   );
 
+console.log(
+  'STATUS:',
+  response.status
+);
+
+console.log(
+  'URL:',
+  API_URL
+);
+
 const dados =
   await response.json();
 
