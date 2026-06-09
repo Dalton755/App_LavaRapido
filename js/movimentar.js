@@ -57,12 +57,7 @@ async function movimentar(){
       'movimentador'
     ).value;
 
-  const tipoLavagem =
-    document.getElementById(
-      'tipoLavagem'
-    ).value;
-
-  
+ 
 
   if(!movimentador){
 
@@ -74,17 +69,7 @@ async function movimentar(){
 
   }
 
-  if(!tipoLavagem){
 
-    alert(
-      'Selecione o tipo'
-    );
-
-    return;
-
-  }
-
- 
 
   const body = {
 
@@ -97,7 +82,6 @@ async function movimentar(){
 
     movimentador,
 
-    tipoLavagem,
 
 
   };
