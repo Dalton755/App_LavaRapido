@@ -99,7 +99,6 @@ async function movimentar(){
 
     tipoLavagem,
 
-    foto:fotoBase64
 
   };
 
