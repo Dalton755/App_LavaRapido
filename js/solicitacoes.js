@@ -43,6 +43,11 @@ const lojaSelecionada =
     'lojaSelecionada'
   );
 
+  console.log(
+  'FILTRO:',
+  '[' + lojaSelecionada + ']'
+);
+
 const solicitacoes =
   dados.filter(item => {
 
@@ -53,13 +58,22 @@ const solicitacoes =
       return false;
     }
 
-    if(
-      lojaSelecionada &&
-      item.agencia !==
-      lojaSelecionada
-    ){
-      return false;
-    }
+    const agencia =
+  String(item.agencia)
+    .trim()
+    .toUpperCase();
+
+const loja =
+  String(lojaSelecionada)
+    .trim()
+    .toUpperCase();
+
+if(
+  loja &&
+  agencia !== loja
+){
+  return false;
+}
 
     return true;
 
