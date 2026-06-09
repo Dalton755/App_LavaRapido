@@ -94,7 +94,14 @@ const solicitacoes =
 );
     return true;
 
-  });
+  }
+
+  console.log(
+  'TOTAL FILTRADO:',
+  solicitacoes.length
+);
+              
+  );
 
  
 
