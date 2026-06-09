@@ -50,8 +50,6 @@ veiculo.responsavel;
 
 async function concluirLavagem(){
 
-  alert('Lavagem Concluída');
-  
 const lavador =
 document.getElementById(
 'lavador'
@@ -69,8 +67,6 @@ return;
 
 }
 
-
-
 const url =
 
 
@@ -82,12 +78,18 @@ API_URL +
 encodeURIComponent(id) +
 
 '&lavador=' +
-encodeURIComponent(lavador) +
+encodeURIComponent(lavador);
 
 
-  
-
+const response =
 await fetch(url);
+
+const resultado =
+await response.json();
+
+console.log(
+resultado
+);
 
 alert(
 'Lavagem concluída'
@@ -97,5 +99,6 @@ window.location.href =
 'aguardando.html';
 
 }
+
 
 carregarLavagem();
