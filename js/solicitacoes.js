@@ -53,6 +53,11 @@ async function carregarSolicitacoes(){
 const solicitacoes =
   dados.filter(item => {
 
+    console.log(
+  'TOTAL API:',
+  dados.length
+);
+
     if(
       item.status !==
       'SOLICITADO'
