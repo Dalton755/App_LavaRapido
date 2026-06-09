@@ -216,6 +216,36 @@ function fecharMenu(){
 
 }
 
+
+function alterarLoja(){
+
+  const loja =
+    document.getElementById(
+      'filtroLoja'
+    ).value;
+
+  localStorage.setItem(
+    'lojaSelecionada',
+    loja
+  );
+
+  location.reload();
+
+}
+
+window.onload = () => {
+
+  const loja =
+    localStorage.getItem(
+      'lojaSelecionada'
+    ) || '';
+
+  document.getElementById(
+    'filtroLoja'
+  ).value = loja;
+
+};
+
 </script>
 
 </body>
