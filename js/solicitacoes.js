@@ -2,6 +2,11 @@ let primeiraCarga = true;
 
 async function carregarSolicitacoes(){
 
+  alert(
+  'API_URL = ' +
+  API_URL
+);
+
   const lista =
     document.getElementById(
       'listaSolicitacoes'
