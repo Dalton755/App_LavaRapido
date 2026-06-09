@@ -84,9 +84,8 @@ encodeURIComponent(id) +
 '&lavador=' +
 encodeURIComponent(lavador) +
 
-'&checklist=' +
-encodeURIComponent(checklist);
 
+  
 
 await fetch(url);
 
