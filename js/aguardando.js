@@ -66,9 +66,7 @@ aguardando.forEach(item => {
   html += `
     <div class="card">
 
-      <img
-        src="${item.foto && item.foto !== '' ? item.foto : 'https://placehold.co/600x400/png?text=' + encodeURIComponent(item.placa)}"
-        class="foto-card"
+      
         alt="${item.placa}">
 
       <div class="card-placa">
