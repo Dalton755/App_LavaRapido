@@ -27,11 +27,32 @@ async function carregarSolicitacoes(){
     const dados =
       await response.json();
 
-    const solicitacoes =
-      dados.filter(
-        item =>
-          item.status === 'SOLICITADO'
-      );
+    const lojaSelecionada =
+  localStorage.getItem(
+    'lojaSelecionada'
+  );
+
+const solicitacoes =
+  dados.filter(item => {
+
+    if(
+      item.status !==
+      'SOLICITADO'
+    ){
+      return false;
+    }
+
+    if(
+      lojaSelecionada &&
+      item.agencia !==
+      lojaSelecionada
+    ){
+      return false;
+    }
+
+    return true;
+
+  });
 
     let html = '';
 
