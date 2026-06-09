@@ -47,6 +47,14 @@ const solicitacoes =
       return false;
     }
 
+    console.log(
+  'COMPARANDO:',
+  {
+    lojaSelecionada,
+    agencia:item.agencia
+  }
+);
+    
     if(
       lojaSelecionada &&
       item.agencia !==
