@@ -62,10 +62,7 @@ const solicitacoes =
 
   });
 
-    console.log(
-  'DADOS:',
-  dados
-);
+ 
 
     let html = '';
 
