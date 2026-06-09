@@ -45,6 +45,13 @@ const concluidos =
     ){
       return false;
     }
+    if(
+  lojaSelecionada &&
+  item.agencia !==
+  lojaSelecionada
+){
+  return false;
+}
 
     const dataItem =
       new Date(
