@@ -24,6 +24,14 @@ async function carregarSolicitacoes(){
         API_URL + '?action=listar'
       );
 
+    alert(
+  JSON.stringify(
+    dados[0],
+    null,
+    2
+  )
+);
+
     const dados =
       await response.json();
 
