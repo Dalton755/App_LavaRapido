@@ -15,11 +15,32 @@ const response = await fetch(
 
 const dados = await response.json();
 
-const aguardando = dados.filter(
-  item =>
-    item.status ===
-    'AGUARDANDO_LAVAGEM'
-);
+const lojaSelecionada =
+  localStorage.getItem(
+    'lojaSelecionada'
+  );
+
+const aguardando =
+  dados.filter(item => {
+
+    if(
+      item.status !==
+      'AGUARDANDO_LAVAGEM'
+    ){
+      return false;
+    }
+
+    if(
+      lojaSelecionada &&
+      item.agencia !==
+      lojaSelecionada
+    ){
+      return false;
+    }
+
+    return true;
+
+  });
 
 console.log(
   'AGUARDANDO:',
