@@ -130,8 +130,6 @@ lista.innerHTML = html;
 primeiraCarga = false;
 
 
-}catch(error){
-
   }catch(error){
 
   alert(
