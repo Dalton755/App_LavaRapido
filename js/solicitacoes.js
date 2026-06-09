@@ -32,6 +32,11 @@ async function carregarSolicitacoes(){
     'lojaSelecionada'
   );
 
+    console.log(
+  'LOJA:',
+  lojaSelecionada
+);
+
 const solicitacoes =
   dados.filter(item => {
 
@@ -49,10 +54,18 @@ const solicitacoes =
     ){
       return false;
     }
-
+    console.log(
+  'AGENCIA ITEM:',
+  item.agencia
+);
     return true;
 
   });
+
+    console.log(
+  'DADOS:',
+  dados
+);
 
     let html = '';
 
