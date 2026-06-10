@@ -25,15 +25,20 @@ const dadosFiltrados =
 
   });
 
-  const solicitados =
+const solicitados =
   dadosFiltrados.filter(
     item => item.status === 'SOLICITADO'
   );
 
-  const aguardando =
-  const filaCritica =
+const aguardando =
+  dadosFiltrados.filter(
+    item =>
+      item.status === 'AGUARDANDO_LAVAGEM'
+  );
 
-  aguardando
+const filaCritica =
+
+  [...aguardando]
 
     .sort((a,b)=>{
 
@@ -95,69 +100,41 @@ const dadosFiltrados =
   ).innerText =
     concluidos.length;
 
-}
-  let htmlFila = '';
+  const solicitados =
+  dadosFiltrados.filter(
+    item => item.status === 'SOLICITADO'
+  );
 
-filaCritica.forEach(item => {
+const aguardando =
+  dadosFiltrados.filter(
+    item =>
+      item.status === 'AGUARDANDO_LAVAGEM'
+  );
 
-  const minutos =
+const filaCritica =
 
-    parseInt(
-      item.tempoMovimentacao
-    ) || 0;
+  [...aguardando]
 
-  const classe =
+    .sort((a,b)=>{
 
-    minutos >= 60
-      ? 'alerta-vermelho'
-      : 'alerta-amarelo';
+      const tempoA =
+        parseInt(
+          a.tempoMovimentacao
+        ) || 0;
 
-  htmlFila += `
+      const tempoB =
+        parseInt(
+          b.tempoMovimentacao
+        ) || 0;
 
-    <div class="alerta-card">
+      return tempoB - tempoA;
 
-      <div>
+    })
 
-        <div class="alerta-placa">
-
-          ${item.placa}
-
-        </div>
-
-        <div>
-
-          ${item.tipoLavagem || '-'}
-
-        </div>
-
-      </div>
-
-      <div
-        class="alerta-tempo ${classe}">
-
-        ${item.tempoMovimentacao}
-
-      </div>
-
-    </div>
-
-  `;
-
-});
-
-if(htmlFila === ''){
-
-  htmlFila = `
-
-    <div class="alerta-card">
-
-      Nenhum veículo em fila
-
-    </div>
-
-  `;
+    .slice(0,3);
 
 }
+ 
 
 document.getElementById(
   'filaCritica'
