@@ -67,7 +67,6 @@ aguardando.forEach(item => {
     <div class="card">
 
       
-        alt="${item.placa}">
 
       <div class="card-placa">
         ${item.placa}
