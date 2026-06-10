@@ -97,21 +97,31 @@ body{
 }
 
 .placa{
-  font-size:28px;
-  font-weight:700;
-  letter-spacing:2px;
+
+  font-size:34px;
+
+  font-weight:800;
+
+  letter-spacing:3px;
+
+  color:#0f172a;
+
 }
 
 .tempo{
-  background:#dbeafe;
-  color:#1d4ed8;
 
-  padding:6px 10px;
+  background:#eef4ff;
 
-  border-radius:999px;
+  color:#2563eb;
+
+  padding:8px 12px;
+
+  border-radius:20px;
 
   font-size:12px;
-  font-weight:600;
+
+  font-weight:700;
+
 }
 
 .card-info{
@@ -480,4 +490,60 @@ display:block;
 }
 
 
+.card-info{
 
+  display:flex;
+
+  flex-direction:column;
+
+  gap:8px;
+
+  color:#475569;
+
+  margin-bottom:18px;
+
+}
+
+.card-tag{
+
+  display:inline-flex;
+
+  align-items:center;
+
+  width:max-content;
+
+  padding:8px 14px;
+
+  border-radius:999px;
+
+  background:#dcfce7;
+
+  color:#166534;
+
+  font-size:12px;
+
+  font-weight:700;
+
+}
+
+.card-footer{
+
+  margin-top:18px;
+
+}
+
+.btn{
+
+  width:100%;
+
+  height:52px;
+
+  border:none;
+
+  border-radius:16px;
+
+  font-size:16px;
+
+  font-weight:700;
+
+}
