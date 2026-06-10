@@ -84,9 +84,10 @@ aguardando.forEach(item => {
           ${item.movimentador || '-'}
         </div>
 
-        <div>
-          <strong>Tipo:</strong>
-          ${item.tipoLavagem || '-'}
+        <div class="card-tag">
+
+          🚿 ${item.tipoLavagem}
+
         </div>
 
       </div>
