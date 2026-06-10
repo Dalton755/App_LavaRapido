@@ -1,87 +1,77 @@
 async function carregarDashboard(){
 
   const response =
-    await fetch(API_URL + '?action=listar');
+    await fetch(
+      API_URL + '?action=listar'
+    );
 
   const dados =
     await response.json();
 
   const lojaSelecionada =
-  localStorage.getItem(
-    'lojaSelecionada'
-  );
-
-const dadosFiltrados =
-  dados.filter(item => {
-
-    if(!lojaSelecionada){
-      return true;
-    }
-
-    return (
-      item.agencia &&
-      item.agencia === lojaSelecionada
+    localStorage.getItem(
+      'lojaSelecionada'
     );
 
-  });
+  const dadosFiltrados =
+    dados.filter(item => {
 
-const solicitados =
-  dadosFiltrados.filter(
-    item => item.status === 'SOLICITADO'
-  );
+      if(!lojaSelecionada){
+        return true;
+      }
 
-const aguardando =
-  dadosFiltrados.filter(
-    item =>
-      item.status === 'AGUARDANDO_LAVAGEM'
-  );
+      return (
+        item.agencia &&
+        item.agencia === lojaSelecionada
+      );
 
-const filaCritica =
+    });
 
-  [...aguardando]
-
-    .sort((a,b)=>{
-
-      const tempoA =
-        parseInt(
-          a.tempoMovimentacao
-        ) || 0;
-
-      const tempoB =
-        parseInt(
-          b.tempoMovimentacao
-        ) || 0;
-
-      return tempoB - tempoA;
-
-    })
-
-    .slice(0,3);
-    
+  const solicitados =
     dadosFiltrados.filter(
       item =>
-        item.status === 'AGUARDANDO_LAVAGEM'
+        item.status ===
+        'SOLICITADO'
     );
 
-  const hoje = new Date();
+  const aguardando =
+    dadosFiltrados.filter(
+      item =>
+        item.status ===
+        'AGUARDANDO_LAVAGEM'
+    );
 
-  const hojeStr =
-    hoje.toLocaleDateString('pt-BR');
+  const hoje =
+    new Date()
+      .toLocaleDateString(
+        'pt-BR'
+      );
 
   const concluidos =
     dadosFiltrados.filter(item => {
 
-      if(item.status !== 'CONCLUIDO')
+      if(
+        item.status !==
+        'CONCLUIDO'
+      ){
         return false;
+      }
 
-      if(!item.dataLavagem)
+      if(
+        !item.dataLavagem
+      ){
         return false;
+      }
 
       const data =
-        new Date(item.dataLavagem)
-          .toLocaleDateString('pt-BR');
+        new Date(
+          item.dataLavagem
+        )
+        .toLocaleDateString(
+          'pt-BR'
+        );
 
-      return data === hojeStr;
+      return data === hoje;
 
     });
 
@@ -100,48 +90,67 @@ const filaCritica =
   ).innerText =
     concluidos.length;
 
-  const solicitados =
-  dadosFiltrados.filter(
-    item => item.status === 'SOLICITADO'
-  );
+  const filaCritica =
+    [...aguardando]
+      .slice(0,3);
 
-const aguardando =
-  dadosFiltrados.filter(
-    item =>
-      item.status === 'AGUARDANDO_LAVAGEM'
-  );
+  let htmlFila = '';
 
-const filaCritica =
+  filaCritica.forEach(item => {
 
-  [...aguardando]
+    htmlFila += `
 
-    .sort((a,b)=>{
+      <div class="alerta-card">
 
-      const tempoA =
-        parseInt(
-          a.tempoMovimentacao
-        ) || 0;
+        <div>
 
-      const tempoB =
-        parseInt(
-          b.tempoMovimentacao
-        ) || 0;
+          <div class="alerta-placa">
 
-      return tempoB - tempoA;
+            ${item.placa}
 
-    })
+          </div>
 
-    .slice(0,3);
+          <div>
+
+            ${item.tipoLavagem || '-'}
+
+          </div>
+
+        </div>
+
+        <div class="alerta-tempo alerta-amarelo">
+
+          ${item.tempoMovimentacao || '-'}
+
+        </div>
+
+      </div>
+
+    `;
+
+  });
+
+  if(htmlFila === ''){
+
+    htmlFila = `
+
+      <div class="alerta-card">
+
+        Nenhum veículo em fila
+
+      </div>
+
+    `;
+
+  }
+
+  document.getElementById(
+    'filaCritica'
+  ).innerHTML =
+    htmlFila;
 
 }
  
-
-document.getElementById(
-  'filaCritica'
-).innerHTML =
-  htmlFila;
-
-
 
 carregarDashboard();
 
