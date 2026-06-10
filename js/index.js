@@ -95,6 +95,7 @@ const dadosFiltrados =
   ).innerText =
     concluidos.length;
 
+}
   let htmlFila = '';
 
 filaCritica.forEach(item => {
@@ -163,7 +164,7 @@ document.getElementById(
 ).innerHTML =
   htmlFila;
 
-}
+
 
 carregarDashboard();
 
