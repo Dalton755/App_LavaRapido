@@ -31,6 +31,28 @@ const dadosFiltrados =
   );
 
   const aguardando =
+  const filaCritica =
+
+  aguardando
+
+    .sort((a,b)=>{
+
+      const tempoA =
+        parseInt(
+          a.tempoMovimentacao
+        ) || 0;
+
+      const tempoB =
+        parseInt(
+          b.tempoMovimentacao
+        ) || 0;
+
+      return tempoB - tempoA;
+
+    })
+
+    .slice(0,3);
+    
     dadosFiltrados.filter(
       item =>
         item.status === 'AGUARDANDO_LAVAGEM'
@@ -72,6 +94,74 @@ const dadosFiltrados =
     'totalConcluidos'
   ).innerText =
     concluidos.length;
+
+  let htmlFila = '';
+
+filaCritica.forEach(item => {
+
+  const minutos =
+
+    parseInt(
+      item.tempoMovimentacao
+    ) || 0;
+
+  const classe =
+
+    minutos >= 60
+      ? 'alerta-vermelho'
+      : 'alerta-amarelo';
+
+  htmlFila += `
+
+    <div class="alerta-card">
+
+      <div>
+
+        <div class="alerta-placa">
+
+          ${item.placa}
+
+        </div>
+
+        <div>
+
+          ${item.tipoLavagem || '-'}
+
+        </div>
+
+      </div>
+
+      <div
+        class="alerta-tempo ${classe}">
+
+        ${item.tempoMovimentacao}
+
+      </div>
+
+    </div>
+
+  `;
+
+});
+
+if(htmlFila === ''){
+
+  htmlFila = `
+
+    <div class="alerta-card">
+
+      Nenhum veículo em fila
+
+    </div>
+
+  `;
+
+}
+
+document.getElementById(
+  'filaCritica'
+).innerHTML =
+  htmlFila;
 
 }
 
