@@ -111,11 +111,11 @@ if(solicitacoes.length === 0){
         <div class="card-info">
 
           <div>
-            ${item.responsavel}
+            👤 ${item.responsavel}
           </div>
 
           <div>
-            ${item.agencia}
+            🏢 ${item.agencia}
           </div>
 
         </div>
