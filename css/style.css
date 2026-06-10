@@ -443,5 +443,25 @@ display:block;
 
 }
 
+.tipo-lavagem{
+
+  display:inline-block;
+
+  margin-top:8px;
+
+  padding:4px 10px;
+
+  border-radius:20px;
+
+  background:#eef4ff;
+
+  color:#2457d6;
+
+  font-weight:600;
+
+  font-size:12px;
+
+}
+
 
 
