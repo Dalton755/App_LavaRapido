@@ -1,5 +1,5 @@
 
-const API_URL = 'https://script.google.com/macros/s/AKfycbzOy5wqmrt_OrYGDsrLsFOPQENeaT6fJkn6lYBN3Q8BKruKZJkQAD80jLv2QuEj-GjY/exec';
+const API_URL = 'https://script.google.com/macros/s/AKfycbykF7ZwcXLTZT-kG0nB1YelcNS7eIpmO6i2qheFep0k15D-DzKqp8xfY2DTjwXqUlrv/exec';
 
 const CONFIG = {
 
