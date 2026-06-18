@@ -117,8 +117,14 @@ if(solicitacoes.length === 0){
           <div>
             🏢 ${item.agencia}
           </div>
-
+          
         </div>
+
+            <div class="card-tag">
+    
+              🚿 ${item.tipoLavagem || '-'}
+    
+            </div>
 
         <div class="card-footer">
 
