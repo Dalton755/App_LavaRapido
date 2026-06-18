@@ -48,15 +48,7 @@ const lojaSelecionada =
   '[' + lojaSelecionada + ']'
 );
 
-const solicitacoes =
-  dados.filter(item => {
-
-    if(
-      item.status !==
-      'SOLICITADO'
-    ){
-      return false;
-    }
+const solicitacoes = dados;
 
     const agencia =
   String(item.agencia)
