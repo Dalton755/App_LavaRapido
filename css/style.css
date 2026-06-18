@@ -510,8 +510,6 @@ display:block;
 
   align-items:center;
 
-  width:max-content;
-
   padding:8px 14px;
 
   border-radius:999px;
@@ -523,6 +521,8 @@ display:block;
   font-size:12px;
 
   font-weight:700;
+
+  margin-top:10px;
 
 }
 
