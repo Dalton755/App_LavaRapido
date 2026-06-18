@@ -79,6 +79,20 @@ if(
 
   });
 
+  console.log(
+  'TOTAL API:',
+  dados.length
+);
+
+console.log(
+  'TOTAL SOLICITACOES:',
+  solicitacoes.length
+);
+
+console.log(
+  solicitacoes
+);
+
 let html = '';
 
 if(solicitacoes.length === 0){
