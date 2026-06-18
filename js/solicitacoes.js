@@ -93,6 +93,11 @@ if(solicitacoes.length === 0){
 
   solicitacoes.forEach(item => {
 
+    console.log(
+  item.placa,
+  item.tipoLavagem
+);
+
     html += `
       <div class="card">
 
