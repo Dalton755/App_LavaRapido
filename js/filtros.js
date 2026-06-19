@@ -193,3 +193,73 @@ document.getElementById(
 ).innerHTML = html;
 
 }
+
+function filtrarTipo(){
+
+const tipo =
+
+document.getElementById(
+'valorFiltro'
+).value;
+
+const dados =
+
+window.dadosFiltro.filter(
+item =>
+item.tipoLavagem === tipo &&
+item.status ===
+'AGUARDANDO_LAVAGEM'
+);
+
+const lojas =
+
+[
+...new Set(
+dados.map(
+item => item.agencia
+)
+)
+];
+
+let html =
+
+'<div class="grid-filtros">';
+
+lojas.forEach(loja => {
+
+html += `
+
+<div class="card">
+
+<h3>${loja}</h3>
+
+`;
+
+dados
+.filter(
+item =>
+item.agencia === loja
+)
+.forEach(item => {
+
+html += `
+
+<div>
+${item.placa}
+</div>
+
+`;
+
+});
+
+html += '</div>';
+
+});
+
+html += '</div>';
+
+document.getElementById(
+'resultadoFiltro'
+).innerHTML = html;
+
+}
