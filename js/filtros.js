@@ -21,6 +21,11 @@ function filtrarPorPeriodo(dados){
   periodo
 );
 
+  console.log(
+  'TOTAL ANTES:',
+  dados.length
+);
+
   if(
     !periodo ||
     !periodo.includes('→')
