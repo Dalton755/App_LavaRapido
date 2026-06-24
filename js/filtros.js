@@ -110,18 +110,26 @@ filtroSecundario.innerHTML = `
 
 <div class="card">
 
-<select
-id="valorFiltro">
-
 ${lojas.map(loja => `
 
-<option value="${loja}">
+<label
+style="
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:12px;
+">
+
+<input
+type="checkbox"
+class="checkLoja"
+value="${loja}">
+
 ${loja}
-</option>
+
+</label>
 
 `).join('')}
-
-</select>
 
 <button
 class="btn"
@@ -137,6 +145,8 @@ Filtrar
 
 window.dadosFiltro =
 dados;
+
+
 
 }
 
@@ -190,11 +200,17 @@ dados;
 
 function filtrarLoja(){
 
-const loja =
+const lojasSelecionadas =
 
-document.getElementById(
-'valorFiltro'
-).value;
+[
+
+...document.querySelectorAll(
+'.checkLoja:checked'
+)
+
+].map(
+item => item.value
+);
 
 const dados =
 
@@ -202,7 +218,9 @@ filtrarPorPeriodo(
   window.dadosFiltro
 ).filter(
 item =>
-item.agencia === loja 
+lojasSelecionadas.includes(
+item.agencia
+) 
 
 );
 
