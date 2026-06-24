@@ -654,3 +654,17 @@ input[type="text"]:focus{
   border-color:#2563eb;
 
 }
+
+.filtro-fixo{
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 1000;
+
+  background: #fff;
+
+  padding: 10px 0;
+
+}
