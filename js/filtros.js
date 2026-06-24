@@ -218,12 +218,21 @@ let html =
 
 tipos.forEach(tipo => {
 
+const veiculos =
+
+dados.filter(
+item =>
+item.tipoLavagem === tipo
+);
+
 html += `
 
 <div class="card">
 
-<h3>${tipo}</h3>
-
+<h3>
+${tipo}
+(${veiculos.length})
+</h3>
 `;
 
 dados
