@@ -339,4 +339,28 @@ document.getElementById(
 
 }
 
- 
+ flatpickr(
+  '#periodo',
+  {
+
+    locale: 'pt',
+
+    mode: 'range',
+
+    dateFormat: 'd/m/Y',
+
+    conjunction: ' → ',
+
+    defaultDate: [
+      new Date(
+        new Date()
+          .getFullYear(),
+        new Date()
+          .getMonth(),
+        1
+      ),
+      new Date()
+    ]
+
+  }
+);
