@@ -16,6 +16,11 @@ function filtrarPorPeriodo(dados){
       'periodo'
     ).value.trim();
 
+  console.log(
+  'PERIODO:',
+  periodo
+);
+
   if(
     !periodo ||
     !periodo.includes('→')
