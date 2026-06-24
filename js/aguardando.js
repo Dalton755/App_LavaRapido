@@ -20,12 +20,34 @@ const lojaSelecionada =
     'lojaSelecionada'
   );
 
+  const filtroPlaca =
+
+  document
+    .getElementById(
+      'filtroPlaca'
+    )
+    ?.value
+    ?.trim()
+    ?.toUpperCase() || '';
+
 const aguardando =
   dados.filter(item => {
 
     if(
-      item.status !==
-      'AGUARDANDO_LAVAGEM'
+      item.status ===
+'AGUARDANDO_LAVAGEM'
+
+&&
+
+(
+  !filtroPlaca ||
+
+  item.placa
+    .toUpperCase()
+    .includes(
+      filtroPlaca
+    )
+)
     ){
       return false;
     }
