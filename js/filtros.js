@@ -7,6 +7,65 @@ document
   carregarFiltro
 );
 
+ function filtrarPorPeriodo(dados){
+
+  const dataInicio =
+    document.getElementById(
+      'dataInicio'
+    ).value;
+
+  const dataFim =
+    document.getElementById(
+      'dataFim'
+    ).value;
+
+  if(
+    !dataInicio &&
+    !dataFim
+  ){
+    return dados;
+  }
+
+  return dados.filter(item => {
+
+    if(!item.dataEmail){
+      return false;
+    }
+
+    const dataItem =
+      new Date(item.dataEmail);
+
+    if(
+      dataInicio &&
+      dataItem < new Date(dataInicio)
+    ){
+      return false;
+    }
+
+    if(dataFim){
+
+      const fim =
+        new Date(dataFim);
+
+      fim.setHours(
+        23,59,59,999
+      );
+
+      if(
+        dataItem > fim
+      ){
+        return false;
+      }
+
+    }
+
+    return true;
+
+  });
+
+}
+
+
 async function carregarFiltro(){
 
 const tipo =
@@ -264,60 +323,4 @@ document.getElementById(
 
 }
 
-  function filtrarPorPeriodo(dados){
-
-  const dataInicio =
-    document.getElementById(
-      'dataInicio'
-    ).value;
-
-  const dataFim =
-    document.getElementById(
-      'dataFim'
-    ).value;
-
-  if(
-    !dataInicio &&
-    !dataFim
-  ){
-    return dados;
-  }
-
-  return dados.filter(item => {
-
-    if(!item.dataEmail){
-      return false;
-    }
-
-    const dataItem =
-      new Date(item.dataEmail);
-
-    if(
-      dataInicio &&
-      dataItem < new Date(dataInicio)
-    ){
-      return false;
-    }
-
-    if(dataFim){
-
-      const fim =
-        new Date(dataFim);
-
-      fim.setHours(
-        23,59,59,999
-      );
-
-      if(
-        dataItem > fim
-      ){
-        return false;
-      }
-
-    }
-
-    return true;
-
-  });
-
-}
+ 
