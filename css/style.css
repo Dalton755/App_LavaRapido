@@ -459,7 +459,7 @@ rgba(0,0,0,.4);
 
 display:none;
 
-z-index:998;
+z-index:1999;
 
 }
 
@@ -661,7 +661,7 @@ input[type="text"]:focus{
 
   top: 70px;
 
-  z-index: 1000;
+  z-index: 100;
 
   background: #f1f5f9;
 
