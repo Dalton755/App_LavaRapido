@@ -51,6 +51,16 @@ function filtrarPorPeriodo(dados){
       23,59,59
     );
 
+  console.log(
+  'PERIODO:',
+  periodo
+);
+
+console.log(
+  'DATA EXEMPLO:',
+  dados[0].dataEmail
+);
+
   return dados.filter(item => {
 
     if(!item.dataEmail){
