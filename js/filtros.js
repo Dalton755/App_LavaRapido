@@ -9,32 +9,20 @@ document
 
 function filtrarPorPeriodo(dados){
 
-  console.log('FUNÇÃO FILTRO EXECUTOU');
-
   const periodo =
     document.getElementById(
       'periodo'
     ).value.trim();
 
-  console.log(
-  'PERIODO:',
-  periodo
-);
-
-  console.log(
-  'TOTAL ANTES:',
-  dados.length
-);
-
   if(
     !periodo ||
-    !periodo.includes('→')
+    !periodo.includes('até')
   ){
     return dados;
   }
 
   const partes =
-    periodo.split(' → ');
+    periodo.split(' até ');
 
   const inicioTexto =
     partes[0].trim();
@@ -62,16 +50,6 @@ function filtrarPorPeriodo(dados){
       diaF,
       23,59,59
     );
-
-  console.log(
-  'PERIODO:',
-  periodo
-);
-
-console.log(
-  'DATA EXEMPLO:',
-  dados[0].dataEmail
-);
 
   return dados.filter(item => {
 
