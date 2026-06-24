@@ -9,6 +9,8 @@ document
 
 function filtrarPorPeriodo(dados){
 
+  console.log('FUNÇÃO FILTRO EXECUTOU');
+
   const periodo =
     document.getElementById(
       'periodo'
