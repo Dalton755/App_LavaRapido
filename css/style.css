@@ -657,29 +657,19 @@ input[type="text"]:focus{
 
 .filtro-fixo{
 
-  position: fixed;
+  position: sticky;
 
   top: 70px;
 
-  left: 0;
-
-  right: 0;
-
   z-index: 1000;
 
-  background: #fff;
+  background: #f1f5f9;
 
-  padding: 10px 15px;
-
-  box-shadow: 0 2px 8px rgba(0,0,0,.1);
+  padding: 10px 0;
 
 }
 
-.lista-com-filtro{
 
-  margin-top: 80px;
-
-}
 
     #periodo{
 
