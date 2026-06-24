@@ -194,7 +194,9 @@ document.getElementById(
 
 const dados =
 
-window.dadosFiltro.filter(
+filtrarPorPeriodo(
+  window.dadosFiltro
+).filter(
 item =>
 item.agencia === loja &&
 item.status ===
