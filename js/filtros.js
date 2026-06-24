@@ -7,24 +7,49 @@ document
   carregarFiltro
 );
 
- function filtrarPorPeriodo(dados){
+function filtrarPorPeriodo(dados){
 
-  const dataInicio =
+  const periodo =
     document.getElementById(
-      'dataInicio'
-    ).value;
-
-  const dataFim =
-    document.getElementById(
-      'dataFim'
-    ).value;
+      'periodo'
+    ).value.trim();
 
   if(
-    !dataInicio &&
-    !dataFim
+    !periodo ||
+    !periodo.includes('→')
   ){
     return dados;
   }
+
+  const partes =
+    periodo.split('→');
+
+  const inicioTexto =
+    partes[0].trim();
+
+  const fimTexto =
+    partes[1].trim();
+
+  const [diaI,mesI,anoI] =
+    inicioTexto.split('/');
+
+  const [diaF,mesF,anoF] =
+    fimTexto.split('/');
+
+  const dataInicio =
+    new Date(
+      anoI,
+      mesI - 1,
+      diaI
+    );
+
+  const dataFim =
+    new Date(
+      anoF,
+      mesF - 1,
+      diaF,
+      23,59,59
+    );
 
   return dados.filter(item => {
 
@@ -35,31 +60,10 @@ document
     const dataItem =
       new Date(item.dataEmail);
 
-    if(
-      dataInicio &&
-      dataItem < new Date(dataInicio)
-    ){
-      return false;
-    }
-
-    if(dataFim){
-
-      const fim =
-        new Date(dataFim);
-
-      fim.setHours(
-        23,59,59,999
-      );
-
-      if(
-        dataItem > fim
-      ){
-        return false;
-      }
-
-    }
-
-    return true;
+    return (
+      dataItem >= dataInicio &&
+      dataItem <= dataFim
+    );
 
   });
 
