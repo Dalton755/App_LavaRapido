@@ -412,28 +412,27 @@ document.getElementById(
 
 }
 
- flatpickr(
-  '#periodo',
-  {
+window.addEventListener(
+  'load',
+  () => {
 
-    locale: 'pt',
-
-    mode: 'range',
-
-    dateFormat: 'd/m/Y',
-
-    conjunction: ' → ',
-
-    defaultDate: [
-      new Date(
-        new Date()
-          .getFullYear(),
-        new Date()
-          .getMonth(),
-        1
-      ),
-      new Date()
-    ]
+    flatpickr(
+      '#periodo',
+      {
+        locale: 'pt',
+        mode: 'range',
+        dateFormat: 'd/m/Y',
+        conjunction: ' → ',
+        defaultDate: [
+          new Date(
+            new Date().getFullYear(),
+            new Date().getMonth(),
+            1
+          ),
+          new Date()
+        ]
+      }
+    );
 
   }
 );
