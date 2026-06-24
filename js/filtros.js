@@ -235,12 +235,7 @@ ${tipo}
 </h3>
 `;
 
-dados
-.filter(
-item =>
-item.tipoLavagem === tipo
-)
-.forEach(item => {
+veiculos.forEach(item => {
 
 html += `
 
@@ -299,20 +294,24 @@ let html =
 
 lojas.forEach(loja => {
 
+const veiculos =
+
+dados.filter(
+item =>
+item.agencia === loja
+);
+
 html += `
 
 <div class="card">
 
-<h3>${loja}</h3>
-
+<h3>
+${loja}
+(${veiculos.length})
+</h3>
 `;
 
-dados
-.filter(
-item =>
-item.agencia === loja
-)
-.forEach(item => {
+veiculos.forEach(item => {
 
 html += `
 
