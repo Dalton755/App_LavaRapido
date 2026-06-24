@@ -27,49 +27,40 @@
 
 <div class="card">
 
-<label>Filtrar por</label>
-
-<select id="tipoFiltro">
-
-      <div class="card">
-
   <label>Período</label>
 
   <input
-    type="date"
-    id="dataInicio">
-
-  <input
-    type="date"
-    id="dataFim">
+    type="text"
+    id="periodo"
+    placeholder="01/06/2026 → 15/06/2026">
 
 </div>
 
-<option value="">
-Selecione
-</option>
+<div class="card">
 
-<option value="LOJA">
-Loja
-</option>
+  <label>Filtrar por</label>
 
-<option value="TIPO">
-Tipo de Lavagem
-</option>
+  <select id="tipoFiltro">
 
-</select>
+    <option value="">
+      Selecione
+    </option>
 
-</div>
+    <option value="LOJA">
+      Loja
+    </option>
 
-<div
-id="filtroSecundario">
+    <option value="TIPO">
+      Tipo de Lavagem
+    </option>
 
-</div>
-
-<div
-id="resultadoFiltro">
+  </select>
 
 </div>
+
+<div id="filtroSecundario"></div>
+
+<div id="resultadoFiltro"></div>
 
 </main>
 
