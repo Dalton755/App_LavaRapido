@@ -85,7 +85,16 @@ if(
   return false;
 }
 
-    return true;
+    if(
+  filtroPlaca &&
+  !item.placa
+    .toUpperCase()
+    .includes(filtroPlaca)
+){
+  return false;
+}
+
+return true;
 
   });
 
