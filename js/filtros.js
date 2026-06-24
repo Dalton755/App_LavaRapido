@@ -22,7 +22,7 @@ function filtrarPorPeriodo(dados){
   }
 
   const partes =
-    periodo.split('→');
+    periodo.split(' → ');
 
   const inicioTexto =
     partes[0].trim();
