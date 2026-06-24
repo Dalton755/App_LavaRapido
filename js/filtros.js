@@ -265,7 +265,9 @@ document.getElementById(
 
 const dados =
 
-window.dadosFiltro.filter(
+filtrarPorPeriodo(
+  window.dadosFiltro
+).filter(
 item =>
 item.tipoLavagem === tipo &&
 item.status ===
