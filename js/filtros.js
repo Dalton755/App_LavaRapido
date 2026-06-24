@@ -203,8 +203,7 @@ filtrarPorPeriodo(
 ).filter(
 item =>
 item.agencia === loja &&
-item.status ===
-'AGUARDANDO_LAVAGEM'
+
 );
 
 const tipos =
@@ -278,8 +277,7 @@ filtrarPorPeriodo(
 ).filter(
 item =>
 item.tipoLavagem === tipo &&
-item.status ===
-'AGUARDANDO_LAVAGEM'
+
 );
 
 const lojas =
