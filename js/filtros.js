@@ -202,7 +202,7 @@ filtrarPorPeriodo(
   window.dadosFiltro
 ).filter(
 item =>
-item.agencia === loja &&
+item.agencia === loja 
 
 );
 
@@ -306,7 +306,7 @@ filtrarPorPeriodo(
   window.dadosFiltro
 ).filter(
 item =>
-item.tipoLavagem === tipo &&
+item.tipoLavagem === tipo 
 
 );
 
