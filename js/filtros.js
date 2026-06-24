@@ -206,6 +206,36 @@ item.agencia === loja &&
 
 );
 
+  dados.sort((a,b) => {
+
+  const ordem = {
+
+    SOLICITADO: 1,
+
+    AGUARDANDO_LAVAGEM: 2,
+
+    CONCLUIDO: 3
+
+  };
+
+  const statusA =
+    ordem[a.status] || 99;
+
+  const statusB =
+    ordem[b.status] || 99;
+
+  if(statusA !== statusB){
+
+    return statusA - statusB;
+
+  }
+
+  return a.placa.localeCompare(
+    b.placa
+  );
+
+});
+
 const tipos =
 
 [
@@ -280,6 +310,36 @@ item.tipoLavagem === tipo &&
 
 );
 
+dados.sort((a,b) => {
+
+  const ordem = {
+
+    SOLICITADO: 1,
+
+    AGUARDANDO_LAVAGEM: 2,
+
+    CONCLUIDO: 3
+
+  };
+
+  const statusA =
+    ordem[a.status] || 99;
+
+  const statusB =
+    ordem[b.status] || 99;
+
+  if(statusA !== statusB){
+
+    return statusA - statusB;
+
+  }
+
+  return a.placa.localeCompare(
+    b.placa
+  );
+
+});
+
 const lojas =
 
 [
@@ -317,8 +377,23 @@ veiculos.forEach(item => {
 
 html += `
 
-<div>
-${item.placa}
+<div
+  style="
+    display:flex;
+    justify-content:space-between;
+    padding:4px 0;
+  ">
+
+  <span>
+    ${item.placa}
+  </span>
+
+  <span>
+    ${getStatusHtml(
+      item.status
+    )}
+  </span>
+
 </div>
 
 `;
@@ -362,3 +437,54 @@ document.getElementById(
 
   }
 );
+
+function getStatusHtml(status){
+
+  if(status === 'SOLICITADO'){
+
+    return `
+      <span
+        style="
+          color:#2563eb;
+          font-weight:700;
+        ">
+        SOLICITADO
+      </span>
+    `;
+
+  }
+
+  if(
+    status ===
+    'AGUARDANDO_LAVAGEM'
+  ){
+
+    return `
+      <span
+        style="
+          color:#f59e0b;
+          font-weight:700;
+        ">
+        AGUARDANDO
+      </span>
+    `;
+
+  }
+
+  if(status === 'CONCLUIDO'){
+
+    return `
+      <span
+        style="
+          color:#16a34a;
+          font-weight:700;
+        ">
+        CONCLUÍDO
+      </span>
+    `;
+
+  }
+
+  return status;
+
+}
