@@ -48,6 +48,16 @@ const lojaSelecionada =
   '[' + lojaSelecionada + ']'
 );
 
+  const filtroPlaca =
+
+  document
+    .getElementById(
+      'filtroPlaca'
+    )
+    ?.value
+    ?.trim()
+    ?.toUpperCase() || '';
+
 const solicitacoes =
   dados.filter(item => {
 
