@@ -34,20 +34,19 @@ const aguardando =
   dados.filter(item => {
 
     if(
-      item.status ===
-'AGUARDANDO_LAVAGEM'
+      item.status !==
+      'AGUARDANDO_LAVAGEM'
+    ){
+      return false;
+    }
 
-&&
-
-(
-  !filtroPlaca ||
-
-  item.placa
-    .toUpperCase()
-    .includes(
-      filtroPlaca
-    )
-)
+    if(
+      filtroPlaca &&
+      !item.placa
+        .toUpperCase()
+        .includes(
+          filtroPlaca
+        )
     ){
       return false;
     }
