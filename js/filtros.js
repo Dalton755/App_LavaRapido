@@ -272,8 +272,23 @@ veiculos.forEach(item => {
 
 html += `
 
-<div>
-${item.placa}
+<div
+  style="
+    display:flex;
+    justify-content:space-between;
+    padding:4px 0;
+  ">
+
+  <span>
+    ${item.placa}
+  </span>
+
+  <span>
+    ${getStatusHtml(
+      item.status
+    )}
+  </span>
+
 </div>
 
 `;
