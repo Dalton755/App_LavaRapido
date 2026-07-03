@@ -70,39 +70,30 @@ const solicitacoes = dados.filter(item => {
     return false;
   }
 
+  const agencia =
+    String(item.agencia)
+      .trim()
+      .toUpperCase();
+
+  const loja =
+    String(lojaSelecionada || '')
+      .trim()
+      .toUpperCase();
+
+  if (loja && agencia !== loja) {
+    return false;
+  }
+
+  if (
+    filtroPlaca &&
+    !item.placa.toUpperCase().includes(filtroPlaca)
+  ) {
+    return false;
+  }
+
   return true;
 
 });
-
-    const agencia =
-  String(item.agencia)
-    .trim()
-    .toUpperCase();
-
-const loja =
-  String(lojaSelecionada)
-    .trim()
-    .toUpperCase();
-
-if(
-  loja &&
-  agencia !== loja
-){
-  return false;
-}
-
-    if(
-  filtroPlaca &&
-  !item.placa
-    .toUpperCase()
-    .includes(filtroPlaca)
-){
-  return false;
-}
-
-return true;
-
-  });
 
   console.log(
   'TOTAL API:',
