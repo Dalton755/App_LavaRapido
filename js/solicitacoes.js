@@ -71,7 +71,9 @@ const solicitacoes =
   item.placa,
   item.status,
   item.agencia
-    ){
+    );
+      
+    {
       return false;
     }
 
