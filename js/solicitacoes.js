@@ -58,24 +58,21 @@ const lojaSelecionada =
     ?.trim()
     ?.toUpperCase() || '';
 
-const solicitacoes =
-  dados.filter(item => {
+const solicitacoes = dados.filter(item => {
 
-    if(
-      item.status !==
-      'SOLICITADO'
-      
-);
+  console.log(
+    item.placa,
+    item.status,
+    item.agencia
+  );
 
-      console.log(
-  item.placa,
-  item.status,
-  item.agencia
-    );
-      
-    {
-      return false;
-    }
+  if (item.status !== 'SOLICITADO') {
+    return false;
+  }
+
+  return true;
+
+});
 
     const agencia =
   String(item.agencia)
