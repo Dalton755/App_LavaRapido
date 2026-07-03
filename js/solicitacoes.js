@@ -64,12 +64,13 @@ const solicitacoes =
     if(
       item.status !==
       'SOLICITADO'
+      
+);
 
       console.log(
   item.placa,
   item.status,
   item.agencia
-);
     ){
       return false;
     }
