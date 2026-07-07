@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Nova Solicitação</title>
+
+<link rel="stylesheet"
+href="./css/style.css">
+
+</head>
+
+<body>
+
+<header class="topbar">
+
+<h1>Nova Solicitação</h1>
+
+</header>
+
+<main class="container">
+
+<div class="card">
+
+<div class="form-group">
+
+<label>Loja</label>
+
+<select id="loja">
+
+<option value="ACUCP">
+Central Plaza
+</option>
+
+<option value="ACSMC">
+Mooca
+</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label>Placa</label>
+
+<input
+type="text"
+id="placa"
+maxlength="7"
+placeholder="ABC1D23">
+
+</div>
+
+<div class="form-group">
+
+<label>Tipo de Lavagem</label>
+
+<select id="tipo">
+
+<option>
+Simples
+</option>
+
+<option>
+Especial P
+</option>
+
+<option>
+Especial M
+</option>
+
+<option>
+Especial G
+</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label>Responsável</label>
+
+<input
+type="text"
+id="responsavel"
+placeholder="Nome">
+
+</div>
+
+<div class="form-group">
+
+<label>Observação</label>
+
+<input
+type="text"
+id="observacao">
+
+</div>
+
+<button
+class="btn"
+onclick="salvarSolicitacao()">
+
+Cadastrar Solicitação
+
+</button>
+
+</div>
+
+</main>
+
+<script src="./js/config.js"></script>
+
+<script src="./js/nova-solicitacao.js"></script>
+
+</body>
+
+</html>
