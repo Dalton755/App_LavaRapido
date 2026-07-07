@@ -230,3 +230,5 @@ function novaSolicitacao(){
     "nova-solicitacao.html";
 
 }
+
+console.log("VERSAO 03 - 06/07");
