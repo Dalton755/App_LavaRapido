@@ -224,7 +224,9 @@ carregarSolicitacoes,
 
 function novaSolicitacao(){
 
+  console.log("FUNÇÃO NOVA SOLICITAÇÃO");
+
   window.location.href =
-    'nova-solicitacao.html';
+    "nova-solicitacao.html";
 
 }
