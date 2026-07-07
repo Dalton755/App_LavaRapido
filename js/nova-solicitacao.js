@@ -1,31 +1,92 @@
+async function salvarSolicitacao(){
+
+  const loja =
+    document.getElementById(
+      'loja'
+    ).value;
+
+  const placa =
+    document.getElementById(
+      'placa'
+    )
+    .value
+    .trim()
+    .toUpperCase();
+
+  const tipoLavagem =
+    document.getElementById(
+      'tipo'
+    ).value;
+
+  const responsavel =
+    document.getElementById(
+      'responsavel'
+    )
+    .value
+    .trim();
+
+  const observacao =
+    document.getElementById(
+      'observacao'
+    )
+    .value
+    .trim();
+
+  if(placa.length !== 7){
+
+    alert(
+      'Informe uma placa válida.'
+    );
+
+    return;
+
+  }
+
+  try{
+
+    const url =
+  API_URL +
+  '?action=novaSolicitacao' +
+  '&loja=' + encodeURIComponent(loja) +
+  '&placa=' + encodeURIComponent(placa) +
+  '&tipoLavagem=' + encodeURIComponent(tipoLavagem) +
+  '&responsavel=' + encodeURIComponent(responsavel) +
+  '&observacao=' + encodeURIComponent(observacao);
+
 const response =
-  await fetch(
-    API_URL,
-    {
+  await fetch(url);
 
-      method:'POST',
+const resultado =
+  await response.json();
 
-      headers:{
-        'Content-Type':
-        'application/json'
-      },
+    const resultado =
+      await response.json();
 
-      body:JSON.stringify({
+    if(!resultado.sucesso){
 
-        action:
-          'novaSolicitacao',
+      alert(
+        'Erro ao cadastrar.'
+      );
 
-        loja,
-
-        placa,
-
-        tipoLavagem,
-
-        responsavel,
-
-        observacao
-
-      })
+      return;
 
     }
-  );
+
+    alert(
+      'Solicitação cadastrada com sucesso!'
+    );
+
+    window.location.href =
+      'solicitacoes.html';
+
+  }catch(e){
+
+    console.error(e);
+
+    alert(
+      'Erro de comunicação com o servidor.'
+    );
+
+  }
+
+}
