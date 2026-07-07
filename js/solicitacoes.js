@@ -221,3 +221,10 @@ setInterval(
 carregarSolicitacoes,
 10000
 );
+
+function novaSolicitacao(){
+
+  window.location.href =
+    'nova-solicitacao.html';
+
+}
