@@ -1,109 +1,31 @@
-async function salvarSolicitacao(){
+const response =
+  await fetch(
+    API_URL,
+    {
 
-  const loja =
-    document.getElementById(
-      'loja'
-    ).value;
+      method:'POST',
 
-  const placa =
-    document.getElementById(
-      'placa'
-    )
-    .value
-    .trim()
-    .toUpperCase();
+      headers:{
+        'Content-Type':
+        'application/json'
+      },
 
-  const tipoLavagem =
-    document.getElementById(
-      'tipo'
-    ).value;
+      body:JSON.stringify({
 
-  const responsavel =
-    document.getElementById(
-      'responsavel'
-    )
-    .value
-    .trim();
+        action:
+          'novaSolicitacao',
 
-  const observacao =
-    document.getElementById(
-      'observacao'
-    )
-    .value
-    .trim();
+        loja,
 
-  if(placa.length !== 7){
+        placa,
 
-    alert(
-      'Informe uma placa válida.'
-    );
+        tipoLavagem,
 
-    return;
+        responsavel,
 
-  }
+        observacao
 
-  try{
-
-    const response =
-      await fetch(
-        API_URL,
-        {
-
-          method:'POST',
-
-          headers:{
-            'Content-Type':
-            'application/json'
-          },
-
-          body:JSON.stringify({
-
-            action:
-              'novaSolicitacao',
-
-            loja,
-
-            placa,
-
-            tipoLavagem,
-
-            responsavel,
-
-            observacao
-
-          })
-
-        }
-      );
-
-    const resultado =
-      await response.json();
-
-    if(!resultado.sucesso){
-
-      alert(
-        'Erro ao cadastrar.'
-      );
-
-      return;
+      })
 
     }
-
-    alert(
-      'Solicitação cadastrada com sucesso!'
-    );
-
-    window.location.href =
-      'solicitacoes.html';
-
-  }catch(e){
-
-    console.error(e);
-
-    alert(
-      'Erro de comunicação com o servidor.'
-    );
-
-  }
-
-}
+  );
